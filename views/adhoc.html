@@ -1,0 +1,83 @@
+<div class="page-bg  {{selectedSeason | lowercase}}" id="page-id-{{pageId}}">
+<!-- <sense-object id="hSzde" title=""></sense-object> -->
+
+<!-- <div id="testobj" style="width: 990px; height: 380px"></div> -->
+      <div class="container-fluid ">
+          <h1 class="page-title visible-xs">{{pageName}} </h1>
+        <div class="row">
+         
+          <div class="col-md-3">
+            <div class="side-wrapper">
+
+
+
+
+                <a data-toggle="collapse" class="dropdown-toggle chart-action-toggle"  aria-expanded="false" role="button" href="#dimensionList"><h3 class="ad-hoc-label">Dimensions <i class="fa fa-angle-up"></i></h3></a>
+              
+                <div id="dimensionList" class="collapse in">
+                       <span>To change the order of selected fields, simply drag and drop them here</span>
+                        <div ui-sortable="sortableOptions" ng-model="lists.dimensions.qDimensionList.qItems">
+                                <div ng-repeat="dim in lists.dimensions.qDimensionList.qItems" class="checkbox">
+                                        <label><input type="checkbox" ng-model="dim.isSelected" ng-change="updateChartOptions()" value="{{dim.qData.title}}">{{ dim.qData.title }}</label>
+                                </div>
+                        </div>        
+                </div>
+
+
+
+              <a data-toggle="collapse" class="dropdown-toggle chart-action-toggle" aria-expanded="false" role="button" href="#measureList"><h3 class="ad-hoc-label">Measures <i class="fa fa-angle-up"></i></h3></a>
+                   
+              <div id="measureList" class="collapse in">      
+                    <div ui-sortable="sortableOptions" ng-model="lists.measures.qMeasureList.qItems">
+                      <div ng-repeat="measure in lists.measures.qMeasureList.qItems" class="checkbox">
+                        <label><input type="checkbox" ng-model="measure.isSelected" ng-change="updateChartOptions()" value="{{measure.qData.title}}">{{ measure.qData.title }}</label>
+                      </div>
+                    </div>
+              </div>
+                    <!-- <h3 class="ad-hoc-label">Chart Type</h3>
+                    <div ng-repeat="chart in chartTypes" class="radio">
+                      <label><input type="radio" ng-model="selectedChart.value" name="value" ng-change="updateChartOptions()" ng-value="chart.value">{{ chart.label }}</label>
+                    </div>
+                    </br> -->
+                    <!-- <h3 class="ad-hoc-label">Chart Options</h3>
+                    {{ selectedChart | json }} -->
+
+                    <button type="button" ng-click="createChart()" ng-hide="lists.selected.dims.length == 0 || lists.selected.measures.length == 0" class="btn btn-success btn-lg">Create Chart</button>
+            </div>
+            <!-- /.side-wrapper -->
+          </div>
+          <div class="col-lg-9">
+                 <div class="side-wrapper">
+                      <h3 class="ad-hoc-label">Chart Type</h3>
+                      <div class="chart-types">
+                            <div ng-repeat="chart in chartTypes" class="radio">
+                                <label><input type="radio" ng-model="selectedChart.value" name="value" ng-change="updateChartOptions()" ng-value="chart.value">{{ chart.label }}</label>
+                            </div>
+                      </div>
+                  </div>
+            <div ng-show="lists.selected.dims.length == 0 || lists.selected.measures.length == 0">
+              <h4 style="font-size: 25px;">* Please select at least 1 dimension and 1 measure </h4>
+              <div class="chart-placeholder"></div>
+            </div>
+            <div ng-hide="lists.selected.dims.length == 0 || lists.selected.measures.length == 0" class="panel panel-default sense-chart">
+              <div class="panel-heading">
+                <div style="float: left; display: inline-block">{{title || titleObj}}</div>
+                <div style="display: inline-block; float: right">
+                   
+                    <button type="button" class="btn btn-default btn-sm btn-panel-heading pull-right" ng-click="export(id)">
+                      <span class="fa fa-floppy-o"></span>
+                    </button>
+                </div>
+              </div>
+              
+              <div class="panel-body text-left">
+                    <div class="canvas-wrapper" style="width: 100%; height: 700px;">
+                        <div id="QV01" style="width: 100%; height: 100%;" class="qvplaceholder"></div>
+                    </div>
+              </div>
+
+          </div>
+        </div>
+        <!-- {{ lists.dimensions.qDimensionList.qItems || json }} -->
+      </div>
+</div>

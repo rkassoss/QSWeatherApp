@@ -1,0 +1,9 @@
+{
+	"name": "weather-app",
+	"type": "mashup",
+	"description": "A Qlik sense weather app mashup",
+	"author": "Ran Kassovitz",
+	"dependencies": {
+		"qlik-sense": ">=2.1.x"
+	}
+}

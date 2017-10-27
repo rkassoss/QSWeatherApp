@@ -1,0 +1,204 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+.qv-object-qlikchat *, .qv-object-qlikchat *:before, .qv-object-qlikchat *:after {
+  box-sizing: border-box;
+}
+
+.qv-object-qlikchat body {
+  background: #C5DDEB;
+  font: 14px/20px "Lato", Arial, sans-serif;
+  padding: 40px 0;
+  color: white;
+}
+
+.qv-object-qlikchat .chat-container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  /*background: #444753;*/
+  border-radius: 5px;
+}
+
+.qv-object-qlikchat .chat {
+  width: 90%;
+  height: inherit;
+  float: left;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: #434651;
+  margin-left: 5%;
+}
+
+.qv-object-qlikchat .chat .chat-header {
+  /*padding: 10px;*/
+  height: 36px;
+  background: #595959;
+  border-left: 1px solid rgba(242, 242, 242, 0.75);
+}
+.qv-object-qlikchat .chat .chat-header img {
+  float: left;
+}
+.qv-object-qlikchat .chat .chat-header .chat-about {
+  /*float: left;*/
+  padding-left: 10px;
+  margin-top: 6px;
+}
+.qv-object-qlikchat .chat .chat-header .chat-with {
+  font-weight: bold;
+  font-size: 16px;
+}
+.qv-object-qlikchat .chat .chat-header .chat-num-messages {
+  color: #92959E;
+}
+.qv-object-qlikchat .chat .chat-header .fa-star {
+  float: right;
+  color: #D8DADF;
+  font-size: 20px;
+  margin-top: 12px;
+}
+.qv-object-qlikchat .chat .chat-history {
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+  height: 65%;
+}
+.qv-object-qlikchat .chat .chat-history .message-data {
+  margin-bottom: 10px;
+}
+.qv-object-qlikchat .chat .chat-history .message-data-time {
+  color: #a8aab1;
+  padding-left: 6px;
+}
+.qv-object-qlikchat .chat .chat-history .message {
+  color: white;
+  padding: 9px 10px;
+  line-height: 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 95%;
+  position: relative;
+}
+.qv-object-qlikchat .chat .chat-history .message:after {
+  bottom: 90%;
+  left: 6%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86BB71;
+  border-width: 10px;
+  margin-left: -10px;
+}
+.qv-object-qlikchat .chat .pull-left {
+  float: left !important;
+}
+.qv-object-qlikchat .chat .chat-history .apply-selections-icon {
+  width: 5%;
+  height: inherit;
+  position: relative;
+  text-align: center;
+  color: grey;
+  cursor: pointer;
+}
+
+.qv-object-qlikchat .chat .chat-history .apply-selections-icon:hover {
+  color: red;
+}
+
+.qv-object-qlikchat .chat .chat-history .my-message {
+  background: #86BB71;
+  float: left;
+}
+.qv-object-qlikchat .chat .chat-history .other-message {
+  background: #94C2ED;
+  float: right;
+}
+.qv-object-qlikchat .chat .chat-history .other-message:after {
+  border-bottom-color: #94C2ED;
+  left: 94%;
+}
+.qv-object-qlikchat .chat .chat-message {
+  padding: 15px;
+  height: 25%;
+}
+
+.qv-object-qlikchat .chat .chat-message textarea {
+  width: 100%;
+  height: 70%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+.qv-object-qlikchat .chat .chat-message .fa-file-o, .chat .chat-message .fa-file-image-o {
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+}
+.qv-object-qlikchat .chat .chat-message button {
+  float: right;
+  color: #94C2ED;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #F2F5F8;
+}
+.qv-object-qlikchat .chat .chat-message button:hover {
+  color: #75b1e8;
+}
+
+.qv-object-qlikchat .online, .offline, .me {
+  margin-right: 3px;
+  font-size: 10px;
+}
+
+.qv-object-qlikchat .online {
+  color: #86BB71;
+}
+
+.qv-object-qlikchat li {
+  display: initial !important;
+}
+
+.qv-object-qlikchat .offline {
+  color: #E38968;
+}
+
+.qv-object-qlikchat .me {
+  color: #94C2ED;
+}
+
+.qv-object-qlikchat .align-left {
+  text-align: left;
+}
+
+.qv-object-qlikchat .align-right {
+  text-align: right;
+}
+
+.qv-object-qlikchat .float-right {
+  float: right;
+}
+
+.qv-object-qlikchat .float-left {
+  float: left;
+}
+
+.qv-object-qlikchat .clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}

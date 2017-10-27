@@ -1,0 +1,151 @@
+
+<!-- SPALSH PAGE -->
+<!-- 
+<div id="splashContainer" style="opacity: 0" >
+    <div class="splash">
+                <div class="splash-bg"></div>
+                <img id="powered-by-qlik" src="images/powered-by-Qlik.png" alt="Powered by Qlik" class="img-responsive">
+                <div class="splash-content">
+                                        
+                                        <div class="container">
+                                              <div class="splash-welcome">
+                                                  <h1>Weather in 50<span>cities worldwide</span></h1>
+                                                  
+                                                  <p>This is a Qlik Demo Mashup integrating data from Qlik DataMarket. Weather data including temperature, precipitation and wind speed for 50 cities.</p>
+                                                    
+                                              </div>
+  
+                                              <div id="button-wrapper">
+                                                  <button class="btn btn-primary" ng-click="slideDown()">Start Analysing</button>
+                                              </div>
+  
+                                              <div class="splash-kpis">
+                                                  Current Location: Activate GeoLocation
+                                                  <div class="row">
+                                                      <div class="col-sm-4">KPI Object</div>
+                                                      <div class="col-sm-4">KPI Object</div>
+                                                      <div class="col-sm-4">KPI Object</div>
+                                                  </div>
+                                              </div>
+  
+  
+                                              <div class="splash-footer">
+                                                  <div class="row">
+                                                        <div class="col-xs-8">
+                                                            <div id="tick-to-go-straight-wrapper" ng-click="checkClick()">
+                                                                <span><input type="checkbox" ng-model="skip" />Tick here to if you want to go straight to the charts when you next log in.</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4 text-right">
+                                                            Last Updated: MM DDth, YYYY HH:MM:SS TT
+                                                        </div>
+                                                  </div>
+                                              </div>
+                                        </div> -->
+                                        <!-- /.contaier -->
+                 <!-- </div> -->
+                 <!-- /.splash-content -->
+    <!-- </div> -->
+    <!-- /.splash -->
+  <!-- </div> -->
+  <!-- /#splashContainer -->
+
+
+
+
+<!-- TEMPERATURES -->
+
+<div class="page-bg {{selectedSeason | lowercase}}" id="page-id-{{pageId}}">
+<div class="row  ">
+
+  <div class="col-md-12 visible-xs">
+      <a ng-click="gotoAnchor('linechart')">Go to Linechart</a>
+  </div>
+
+  <div class="col-xs-12 col-md-12 col-lg-12">
+      <h1 class="page-title visible-xs">{{pageName}}</h1>
+  
+<div class="row">
+
+  <div id="kpis">
+      <div class="col-sm-12 col-md-4">
+        <kpi-object id="kvPZ" title="" trendid="PaTUy" class="wind-measure"></kpi-object>        
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <kpi-object id="nRPSe" title="" trendid="HzVrGf" class="rain-measure"></kpi-object>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <kpi-object id="QcDuPj" title="" trendid="MDCzHh" class="temp-measure"></kpi-object>
+      </div>
+  </div>
+</div>
+<div class="row">
+
+
+              
+      <div id="slides_control">
+          <div class="col-md-12">
+            <carousel interval="myInterval" >
+              <slide ng-repeat="slide in slides" active="slide.active">
+                  <sense-object id="{{slide.id}}" title=""></sense-object>
+                    <!-- <div class="carousel-caption">
+                        <h4>Slide {{$index+1}}</h4>
+                    </div> -->
+              </slide>
+            </carousel>
+          </div>
+      </div>
+</div>
+<div class="row">
+  <div id="maps">
+
+        <div class="col-sm-12 col-md-6">
+          <sense-object id="QMtRkU" title=""></sense-object>
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+          <sense-object id="MUcSP" title=""></sense-object>
+        </div>
+  </div>
+</div>
+<div class="row">
+  <div id="linechart">
+        <div class="col-md-12">
+          <sense-object id="zdjrjWK" title=""></sense-object>
+        </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 text-center">
+      <button data-toggle="collapse" class="collapse-toggle btn btn-clear text-center" aria-expanded="false" role="button" data-target="#collapse_AJpvsw">Show Table <i class="fa fa-angle-down"></i></button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+      <div id="collapse_AJpvsw" class="collapse">
+          <sense-object style="min-height:350px;" id="AJpvsw"></sense-object>
+      </div>
+  </div>
+</div>
+<!--/.row-->
+
+
+
+
+</div>
+<!--/.main-->
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

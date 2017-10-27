@@ -1,0 +1,9 @@
+<div class='dropdown-directive btn-group' uib-dropdown is-open='status.isopen'>
+	<button type='button' class='btn  dropdown-toggle' uib-dropdown-toggle ng-click='edgeDetection($event)' on-toggle>
+		{{selectedValue}} <span class='caret'></span>
+	</button>
+		  
+	<ul vs-repeat vs-excess='10' class='dropdown-menu' uib-dropdown-menu role='menu' on-toggle>
+		<li ng-class='row.qState' ng-repeat='row in rows' ng-click='selectRow(row)' class=''><a href='javascript:void(0);'>{{row.qText}}</a></li>
+	</ul>
+</div>

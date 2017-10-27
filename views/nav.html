@@ -1,0 +1,237 @@
+<div id="selectionBar" class="">
+    <div class="container-fluid">
+          <button type="button" class="btn btn-clear" ng-click="selState.clearAll()" aria-label="Clear">
+            Clear All <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+          
+          <li ng-repeat="sel in selState.selections">{{sel.fieldName}}: {{sel.qSelected}}
+            <button type="button" ng-click="sel.field.clear()" aria-label="Lock">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </li>
+      </div>
+  </div>
+
+
+<!-- <nav class="navbar navbar-default navbar-fixed-top navbar-top"> -->
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top navbar-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-expand-toggle visible-xs">
+        <i class="fa fa-bars fa-2x"></i>
+      </button>
+      
+      <a class="navbar-brand" href="#">
+        <div class="title">Weather <span>Analytics</span></div>
+      </a>
+      <ol class="breadcrumb navbar-breadcrumb hidden-xs">
+          <li class="active">View: {{pageName}}</li>
+        </ol>
+      <button type="button" class="navbar-right-expand-toggle pull-right visible-xs show-sm-icon">
+        <i class="fa fa-th icon"></i>
+      </button>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <button type="button" class="navbar-right-expand-toggle pull-right visible-xs show-sm-icon">
+        <i class="fa fa-times icon  fa-2x"></i>
+      </button>
+
+      <!-- <li class="dropdown">
+            <vartoggle variable="test" defaultvalue="°C" values="°C|°F">
+      </li> -->
+
+     
+
+      <li class="dropdown profile filter-dropdown">
+         <!-- style="overflow: hidden; position: relative" -->
+        <!-- <a role="button" class="nav-icon dropdown-toggle" id="dropdown-filter-toggle"  data-toggle="collapse" href="#filterbox">
+          <i class="fa fa-filter"></i>
+        </a> -->
+
+        <a data-toggle="collapse" class="dropdown-toggle nav-icon" aria-expanded="false" role="button" href="#filterbox" data-toggle="dropdown"><i class="fa fa-filter"></i> </a>
+        <ul id="filterbox" class="rk-dropdown dropdown-menu dropdown-menu-right dropdown-remove">
+              <my-dropdown field="Date" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="Season" toggle="false" width="300"></my-dropdown>
+              <my-dropdown field="Country" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="City" toggle="true" width="300"></my-dropdown>
+           </li>        
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="" class="nav-icon" role="button" id="cs-toggle" ng-click="showSelectionBar()">
+          <i class="fa fa-tasks"></i>
+        </a>
+      </li>
+
+      <li class="dropdown">
+          <a data-toggle="collapse" class="dropdown-toggle nav-icon" aria-expanded="false" role="button" href="#qbmlist" data-toggle="dropdown"><i class="fa fa-fw fa-bookmark"></i> </a>
+          <ul id="qbmlist" class="rk-dropdown dropdown-menu dropdown-menu-right dropdown-remove">
+            <li class="title">Bookmarks</li>
+            
+            <!-- <a href="#"> -->
+               <li class="list-group-item" ng-repeat="bookmark in bookmarks">
+                   <span class="badge" ng-click="removeBookmark(bookmark.qData.qId)"><i class="fa fa-remove icon"></i></span><span ng-click="applyBookmark(bookmark.qData.qId)">{{ bookmark.qData.title }}</span>
+               </li>
+
+               <li class="nav-divider"></li><li><a href="#" data-cmd="create">Create a new bookmark</a></li>
+               <!-- str += '<li><a href="#" data-id="' + value.qInfo.qId + '">' + value.qData.title + '</a><a href="#" data-id="' + value.qInfo.qId + '" data-remove="1" class="remove-bm"><i class="fa fa-fw fa-remove"></i></a></li>'; -->
+
+            <!-- </a> -->
+          </ul>
+      </li>
+      <li class="dropdown">
+        <a data-toggle="collapse" class="dropdown-toggle nav-icon" aria-expanded="false" role="button" href="#theuser" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i> </a>
+        <ul id="theuser" class="rk-dropdown dropdown-menu dropdown-menu-right dropdown-remove">
+          <li>
+              <a> {{curuser}}</a>
+           </li>        
+        </ul>
+     </li>
+
+
+
+      <!-- <li class="dropdown">
+        <a class="nav-icon" role="button" ng-click="startIntroJs()">
+          <i class="fa fa-question"></i>
+        </a>
+      </li> -->
+
+    </ul>
+
+
+
+    <!-- <div id="CurrentSelections" class="collapse in current-selections" aria-expanded="true"> </div> -->
+
+    <!-- <div id="filterbox" class="collapse hidden-lg" aria-expanded="true"> 
+        <div class="row">
+            <div class="col-xs-10 text-right">
+              <my-dropdown field="Date" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="Season" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="Country" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="City" toggle="true" width="300"></my-dropdown>
+            </div>
+       </div>  
+    </div> -->
+          
+  </div>
+</nav>
+
+<div  class="side-menu sidebar-inverse" ng-mouseenter="expandMenu()" ng-mouseleave="hideMenu()">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="side-menu-container">
+      <!-- <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <div class="icon">
+            <img style="width: 60%" src="images/QlikLogo-Q.png">
+          </div>
+          <div class="title">Weather App</div>
+        </a>
+        <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+          <i class="fa fa-times icon"></i>
+        </button>
+      </div> -->
+
+      <ul class="nav navbar-nav">
+        
+
+        <li ng-class="{active:currentState=='dashboard'}">
+          <a ui-sref="dashboard" ng-click="hideMenu()">
+            <div ng-include="'images/svg/thermometer.svg'" style="margin-left:8px;"></div>
+            <span class="title">Temperatures</span>
+          </a>
+        </li>
+        <li ng-class="{active:currentState=='precipitation'}">
+          <a ui-sref="precipitation" ng-click="hideMenu()">
+            <div ng-include="'images/svg/rain.svg'"></div>
+            <span class="title">Precipitation</span>
+          </a>
+        </li>
+
+        <li ng-class="{active:currentState=='wind'}">
+          <a ui-sref="wind" ng-click="hideMenu()">
+            <div ng-include="'images/svg/wind.svg'"></div>
+            <span class="title">Wind Speeds</span>
+          </a>
+        </li>
+
+        <li ng-class="{active:currentState=='usa'}">
+          <a ui-sref="usa" ng-click="hideMenu()">
+            <div ng-include="'images/svg/usa.svg'"></div>
+            <span class="title">USA</span>
+          </a>
+        </li>
+      
+       
+        <li ng-show="senseVersion >= 2.2" ng-class="{active:currentState=='ad-hoc'}">
+          <a ui-sref="ad-hoc" ng-click="hideMenu()">
+            <div ng-include="'images/svg/chart.svg'"></div>
+            <span class="title">Ad-Hoc Charts</span>
+          </a>
+        </li>
+
+
+         
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+
+</div>
+
+
+
+<script>
+  $(function() {
+
+    $(".navbar-expand-toggle").click(function() {
+        $(".app-container").toggleClass("expanded");
+        $(".navbar-expand-toggle").toggleClass("fa-rotate-90");
+        $(".navbar-brand .title").toggleClass("hidden");
+
+    });
+
+
+    $(".navbar-right-expand-toggle").click(function() {
+        $(".navbar-right").toggleClass("expanded");
+        $(".navbar-right-expand-toggle").toggleClass("fa-rotate-90");
+    });
+
+    $(".side-menu .nav .dropdown").on('show.bs.collapse', function() {
+          $(".side-menu .nav .dropdown .collapse").collapse('hide');
+    });
+
+    $("#curuser").on('click', function(){
+         $(".navbar-nav.navbar-right").toggleClass("revealuser");
+    });
+
+
+    $('.chart-action-toggle').on('click',function(){
+          $(this).toggleClass('rotate-angle');
+    });
+
+
+  });
+
+
+  $('body').click(function(evt){   
+    if(!$(evt.target).hasClass('dropdown-toggle')) {
+            $('.dropdown-directive').removeClass('open');
+            $('.rk-dropdown.dropdown-menu').removeClass('in');
+        }                        
+    });
+
+
+
+
+
+
+</script>
+
+<div class="seasons-carousel {{selectedSeason}}">
+    <img id="img-annual" class="img-season" ng-class="{active : selectedSeason === 'Annual'}" src="images/4-min.jpg"/>
+    <img id="img-summer" class="img-season" ng-class="{active : selectedSeason === 'Summer'}" src="images/seasons/summer-min.jpg"/>
+    <img id="img-spring" class="img-season" ng-class="{active : selectedSeason === 'Spring'}" src="images/seasons/spring-min.jpg"/>
+    <img id="img-winter" class="img-season" ng-class="{active : selectedSeason === 'Winter'}" src="images/seasons/winter-min.jpg"/>
+    <img id="img-autumn" class="img-season" ng-class="{active : selectedSeason === 'Autumn'}" src="images/seasons/autumn-min.jpg"/>
+</div>

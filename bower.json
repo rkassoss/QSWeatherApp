@@ -1,0 +1,39 @@
+{
+  "name": "weather-app",
+  "authors": [
+    "rkassoss"
+  ],
+  "description": "A demo mashup integrating data from Qlik DataMarket, Geo location and OpenWeather.org.",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-cookies": "~1.5.x",
+    "angular-bootstrap": "0.12.1",
+    "angular-animate": "~1.5.x",
+    "angular-resource": "~1.5.x",
+    "angular-pageslide-directive": "ng-pageslide#^1.4.0",
+    "angular-sanitize": "~1.5.x",
+    "angular-reverse-geocode": "assemany-angular-reverse-geocode#^1.0.1",
+    "angular-ui-sortable": "~0.13.4",
+    "angular-mocks": "~1.2.x",
+    "angular-touch": "~1.5.x",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6",
+    "firebase": "^3.0.4",
+    "localforage": "~1.2.4",
+    "smart-area": "^1.2.0",
+    "slackapi-angularjs": "^0.1.0",
+    "ng-websocket": "0.1.5",
+    "ngGeolocation": "^0.0.8",
+    "toolbar": "https://github.com/paulkinzett/toolbar.git#~1.0.1"
+  }
+}

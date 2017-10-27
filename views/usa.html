@@ -1,0 +1,141 @@
+<div class="page-bg {{selectedSeason | lowercase}}" id="page-id-{{pageId}}">
+<div class="row  ">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <h1 class="page-title visible-xs">{{pageName}}</h1>
+        <div class="row" style="height: 350px;">
+                <div class="col-sm-12 col-md-4">
+                        <kpi-object id="kvPZ" title="" trendid="PaTUy" class="wind-measure"></kpi-object>        
+                      </div>
+                      <div class="col-sm-12 col-md-4">
+                        <kpi-object id="nRPSe" title="" trendid="HzVrGf" class="rain-measure"></kpi-object>
+                      </div>
+                      <div class="col-sm-12 col-md-4">
+                        <kpi-object id="QcDuPj" title="" trendid="MDCzHh" class="temp-measure"></kpi-object>
+                      </div>
+
+            <div class="col-sm-12">
+                
+                  <div id="panel-{{divID}}" class="panel panel-default sense-chart glow">
+                
+                      <div ng-mouseenter="toggleButtons(true)" ng-mouseleave="toggleButtons(false)" class="panel-heading">
+                          
+                         
+                            <div style="float: left; display: inline-block" class="chart-title">{{chartTitle}}</div>
+                            <div class="chart-vars hidden-xs" style="display: inline-block; float: left; margin-left: 25px;">
+                                <span class="buttons-group" > <!-- style="display: none" -->
+                                  
+                                  <button type="button" class="btn btn-default" ng-class="{active : activeBtn === 'minTemp'}" ng-click="updateField('=Min','([Minimum daily temperature in degrees Celsius])','Min Temp')">Min Temp</button>
+                                  <button type="button" class="btn btn-default" ng-class="{active : activeBtn === 'avgTemp'}" ng-click="updateField('=Avg','([Average of the 24 hourly temperature observations in degrees Celsius])','Avg Temp')">Avg Temp</button>
+                                  <button type="button" class="btn btn-default" ng-class="{active : activeBtn === 'maxTemp'}" ng-click="updateField('=Max','([Maximum daily temperature in degrees Celsius])','Max Temp')">Max Temp</button>
+                                
+                                </span>
+                            </div>
+                            <!-- /.chart-actions -->
+
+                            <div class="chart-actions" style="display: inline-block; float: right; ">
+                              <span class="buttons-group" > <!-- style="display: none" -->
+
+                                <button type="button" data-toggle="collapse" aria-expanded="false" role="button" href="#chart-vars-xs"  class="btn btn-default btn-sm btn-panel-heading pull-right visible-xs">
+                                    <span class="fa  fa-thermometer-full"></span>
+                                  </button>
+
+                                <button type="button" class="btn btn-default btn-sm btn-panel-heading pull-right" title="Expand visualization" ng-click="zoom()">
+                                  <span class="fa fa-expand"></span>
+                                </button>
+
+                                <button type="button" class="btn btn-default btn-sm btn-panel-heading pull-right"  title="Export underlying data" ng-click="export()">
+                                  <span class="fa fa-floppy-o"></span>
+                                </button>
+
+                                <button type="button" class="btn btn-default btn-sm btn-panel-heading pull-right"  title="Chart description" ng-click="help()">
+                                    <span class="fa fa-question"></span>
+                                  </button>
+
+                              
+                              </span>
+                          </div>
+                          <!-- /.chart-actions -->
+
+                          <div id="chart-vars-xs" class="collapse" >
+                              <span class="buttons-group" > <!-- style="display: none" -->
+                                
+                                <button type="button" class="btn btn-default" ng-class="{active : activeBtn === 'minTemp'}" ng-click="updateField('=Min','([Minimum daily temperature in degrees Celsius])','Min Temp')">Min Temp</button>
+                                <button type="button" class="btn btn-default" ng-class="{active : activeBtn === 'avgTemp'}" ng-click="updateField('=Avg','([Average of the 24 hourly temperature observations in degrees Celsius])','Avg Temp')">Avg Temp</button>
+                                <button type="button" class="btn btn-default" ng-class="{active : activeBtn === 'maxTemp'}" ng-click="updateField('=Max','([Maximum daily temperature in degrees Celsius])','Max Temp')">Max Temp</button>
+                              
+                              </span>
+                          </div>
+
+
+                      </div>
+                      <!-- /.panel-heading -->
+
+                      <div class="panel-body text-left">
+                          <div class="help-cloak"></div>
+                          <div class="help-wrapper">
+                            {{helpContent}}
+                            <div class="help-footer">
+                              <button class="btn btn-clear" ng-click="help()">Back to Analysis <i class="fa fa-close"></i></button>
+                            </div>
+                          </div>
+                          <div class="canvas-wrapper" style="width: 100%; height: 400px;">
+                            <div id="{{divID}}" class=" cell qv-gridcell qvt-gridcell" style="width: 100%; height: 100%;"></div>
+                        </div>
+                      </div>
+                      <!-- /.panel-body -->
+                      <div class="panel-footer">
+                         
+
+                          <div class="chart-indicators" id="selection-ex">
+                              <a data-toggle="collapse" class="dropdown-toggle chart-action-toggle" aria-expanded="false" role="button" href="#seasonSelector">Select Season<i class="fa fa-angle-down"></i></a>
+                              <div id="seasonSelector" class="collapse in">
+                                <ul>
+                                    <li ng-class="{active : activeSeason === 'Annual'}" ng-click="clearField('Annual')">Annual<i class="fa fa-calendar" aria-hidden="true"></i></li>
+                                    <li ng-class="{active : activeSeason === 'Spring'}" ng-click="updateSelection('Spring')">Spring<i class="fa fa-tree" aria-hidden="true"></i></li>
+                                    <li ng-class="{active : activeSeason === 'Summer'}" ng-click="updateSelection('Summer')">Summer<i class="fa fa-sun-o" aria-hidden="true"></i></li>
+                                    <li ng-class="{active : activeSeason === 'Autumn'}" ng-click="updateSelection('Autumn')">Fall<i class="fa fa-leaf" aria-hidden="true"></i></li>
+                                    <li ng-class="{active : activeSeason === 'Winter'}" ng-click="updateSelection('Winter')">Winter<i class="fa fa-snowflake-o" aria-hidden="true"></i></li>
+                                  </ul>
+                              </div>
+                           </div>
+                           <div class="chart-indicators" id="set-analysis-ex">
+                              <a data-toggle="collapse" class="dropdown-toggle chart-action-toggle" aria-expanded="false" role="button" href="#chartSetAn">Filter chart by Country<i class="fa fa-angle-down"></i></a>
+                              <div id="chartSetAn" class="collapse in">
+                                <ul>
+                                 <li ng-class="{active : activeCountry === 'Global'}" ng-click="updateSetAnalysis('*')">Global<i class="fa fa-globe" aria-hidden="true"></i></li>
+                                 <li ng-class="{active : activeCountry === 'United States'}" ng-click="updateSetAnalysis('United States')">United States<img class="img-responsive" src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/flags/4x3/us.svg"></li></li>
+                                 <li ng-class="{active : activeCountry === 'Germany'}" ng-click="updateSetAnalysis('Germany')">Germany<img class="img-responsive" src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/flags/4x3/de.svg"></li>
+                                 <li ng-class="{active : activeCountry === 'India'}" ng-click="updateSetAnalysis('India')">India<img class="img-responsive" src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/flags/4x3/in.svg"></li>
+                                 <li ng-class="{active : activeCountry === 'China'}" ng-click="updateSetAnalysis('China')">China<img class="img-responsive" src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.8.0/flags/4x3/cn.svg"></li>
+                                </ul>
+                              </div>
+  
+                            </div>
+                      </div>
+                  </div>
+                  <!-- /.panel -->
+            </div>
+            <!-- /.col-sm-12 -->
+
+
+
+            <div class="col-md-12 text-center margin-bottom">
+                <button data-object="AJpvsw" data-toggle="collapse" class="collapse-toggle btn btn-clear text-center" aria-expanded="false" role="button" data-target="#collapse_AJpvsw">Show Table <i class="fa fa-angle-down"></i></button>
+            </div>
+            <div class="col-sm-12">
+                <div id="collapse_AJpvsw" class="collapse">
+                    <sense-object style="min-height:350px;" id="AJpvsw"></sense-object>
+                </div>
+            </div>
+            
+
+</div>
+<!--/.row-->
+
+
+</div>
+<!--/.main-->
+</div>
+
+
+</div>

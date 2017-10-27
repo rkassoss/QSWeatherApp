@@ -1,0 +1,36 @@
+<div class="panel panel-default sense-chart ">
+
+  <div ng-mouseenter="toggleButtons(true)" ng-mouseleave="toggleButtons(false)" class="panel-heading">
+    
+        <div style="float: left; display: inline-block" class="chart-title">{{title || titleObj}}</div>
+        <div class="chart-actions" style="display: inline-block; float: right">
+                <span class="buttons-group" > <!-- style="display: none" -->
+
+                          <button type="button" class="btn btn-default btn-sm btn-panel-heading pull-right" title="Expand visualization" ng-click="zoom()">
+                            <span class="fa fa-expand"></span>
+                          </button>
+                          <button type="button" class="btn btn-default btn-sm btn-panel-heading pull-right"  title="Export underlying data" ng-click="export()">
+                            <span class="fa fa-floppy-o"></span>
+                          </button>
+                          <span ng-hide="vizType == 'table' || vizType == 'map' || vizType == 'pivot-table' ">
+                            <button ng-hide="objType == 'table'" type="button" class="btn btn-default btn-sm btn-panel-heading pull-right" title="Show underlying data" ng-click="getTable()">
+                              <span class="fa fa-database"></span>
+                            </button>
+                            <button ng-hide="objType == 'viz'" type="button" class="btn btn-default btn-sm btn-panel-heading pull-right" title="Show visualization" ng-click="getViz()">
+                              <span class="fa fa-line-chart"></span>
+                            </button>
+                          </span>
+
+                </span>
+        </div>
+  </div>
+
+  <div class="panel-body text-left">
+    <div class="canvas-wrapper" style="width: 100%; min-height:350px; height: 350px;">
+
+      <div id="object_{{id}}" class="cell qv-gridcell qvt-gridcell {{objclass}}" style="width: 100%; height: 100%;"></div>
+
+    </div>
+  </div>
+
+</div>
