@@ -8,7 +8,7 @@
  * Controller of the weatherApp
  */
 angular.module('weatherApp')
-  .controller('DashboardCtrl', function ( $scope, $timeout, $cookies, $location,$anchorScroll,anchorSmoothScroll, $modal, senseConfig) {
+  .controller('DashboardCtrl', function ( $scope, $timeout, $location,$anchorScroll,anchorSmoothScroll, $modal, senseConfig) {
 
     $scope.gotoAnchor = function(x) {
       var newHash = x;
@@ -81,59 +81,6 @@ angular.module('weatherApp')
      
     });
 
-
-    // splashpage functionality
-
-    // $scope.skip = false;
-    
-    // $scope.init = function () {
-    //         $scope.inSplash = false; 
-
-    //         if ($cookies.get('straightToAnalysis')) {
-    //             $scope.inSplash = false;
-    //             $scope.slideDown(true);
-    //         } else {
-    //             $('#splashContainer').css('opacity', '1.0');
-    //             $scope.inSplash = true;
-    //         }
-        
-    // }
-
-    // $scope.checkClick = function () {
-    //   $scope.skip = true;
-    //   $timeout(function () {
-    //       $scope.slideDown();
-    //   }, 500);
-
-    //   $cookies.put('straightToAnalysis', 'true');
-      
-    // };
-
-    // $scope.slideDown = function (straight) {
-    //   var delayed = 1000;
-
-    //   if (straight) {
-    //       $scope.inSplash = false;
-    //       $(".page-bg").css('opacity', "1.0");
-    //       $("#splashContainer").css('display', 'none');
-    //       return;
-    //   }
-
-    //   $scope.inSplash = false;
-    //   $(".page-bg").css('opacity', "0");
-    //   $(".splash").slideUp(delayed, function() {
-    //       $('#splashContainer').animate({"bottom":"100%"}, delayed);
-    //       $(".page-bg").animate({"opacity":"1.0"}, delayed / 2);
-    //   });
-    // };
-
-    //  $scope.init();
-
-
-
-
-
-    
 
 
 });

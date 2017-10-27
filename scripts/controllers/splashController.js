@@ -8,7 +8,7 @@
  * Controller of the weatherApp
  */
 angular.module('weatherApp')
-  .controller('splashController', function ($scope, $timeout, $cookies, $location,$geolocation, $http, weatherService, senseConfig) {
+  .controller('splashController', function ($scope, $timeout, $location,$geolocation, $http, weatherService, senseConfig) {
 
 
 
@@ -21,10 +21,10 @@ angular.module('weatherApp')
 
         function success(pos) {
                 var crd = pos.coords;
-                console.log('Your current position is:');
-                console.log(`Latitude : ${crd.latitude}`);
-                console.log(`Longitude: ${crd.longitude}`);
-                console.log(`More or less ${crd.accuracy} meters.`);
+                // console.log('Your current position is:');
+                // console.log(`Latitude : ${crd.latitude}`);
+                // console.log(`Longitude: ${crd.longitude}`);
+                // console.log(`More or less ${crd.accuracy} meters.`);
 
                 $scope.lat = crd.latitude;
                 $scope.lng = crd.longitude;
@@ -49,13 +49,19 @@ angular.module('weatherApp')
             $scope.getGeoLocation();
                $scope.inSplash = false; 
 
-            if ($cookies.get('straightToAnalysis')) {
-                  $scope.inSplash = false;
-                  $location.url('/dashboard');
-            } else {
-                  $('#splashContainer').css('opacity', '1.0');
-                  $scope.inSplash = true;
-            }
+            // removed ngCookie
+            // if ($cookies.get('straightToAnalysis')) {
+            //       $scope.inSplash = false;
+            //       $location.url('/dashboard');
+            // } else {
+            //       $('#splashContainer').css('opacity', '1.0');
+            //       $scope.inSplash = true;
+            // }
+
+        
+            $('#splashContainer').css('opacity', '1.0');
+            $scope.inSplash = true;
+
     }
     
 
@@ -65,7 +71,8 @@ angular.module('weatherApp')
               $scope.slideDown();
           }, 500);
 
-           $cookies.put('straightToAnalysis', 'true');
+          // removed ngCookie
+        //    $cookies.put('straightToAnalysis', 'true');
           
     };
 

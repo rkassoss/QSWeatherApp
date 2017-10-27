@@ -17,8 +17,9 @@ var appId;
 var global;
 var currentUser;
 
-appId = 'weather trends.qvf';
-// appId = 'c60b027e-7284-4c23-8e67-49f4ec0893d0';
+appId = 'weather trends.qvf'; // Sense Desktop
+// appId = 'c60b027e-7284-4c23-8e67-49f4ec0893d0'; // Sense Server Local VM http://qmi-qs-cln/qmc
+// appId = '0c51a51a-986e-4887-a170-b8b90f39eca7'; // Sense Server on http://demo.qliksensestudios.com/
 
 
 config = {
@@ -80,7 +81,7 @@ require(['js/qlik','selectize', 'under_score'], function(qlik, Selectize, _) {
 angular.module('weatherApp', [
       'ngSanitize',
       'ngAnimate',
-      'ngCookies',
+      // 'ngCookies',
       'ngResource',
       'ui.router',
       'ui.bootstrap',
