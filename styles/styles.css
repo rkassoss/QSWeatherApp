@@ -1485,7 +1485,7 @@ width: 100%;
 #selectionBar {
     position: fixed;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
     background: #4b5361;
 	height: auto;
 	min-height: 52px;
@@ -1793,6 +1793,37 @@ width: 100%;
 
 	#chart-vars-xs button {
 		font-size: 12px; 
+	}
+
+
+	/* SPLASHPAGE */
+	#powered-by-qlik {
+		position: relative;
+		margin: 1rem auto;
+	}
+	.current-weather {
+		width: 310px;
+		margin: 0 auto;
+	}
+	.current-weather-wrapper {
+		position: relative;
+		left: auto; top: auto;
+	}
+	.current-weather-wrapper h2 {
+		text-align: center;
+	}
+	.current-weather-wrapper h2 > div {
+		display: block;
+	}
+	.splash-content {
+		display: block;
+	}
+	.splash-content h1 {
+		margin: 0 0 2rem;
+		text-align: center;
+	}
+	.splash-content h1 span {
+		display: inline;
 	}
 }
 
