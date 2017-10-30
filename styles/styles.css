@@ -1604,232 +1604,6 @@ width: 100%;
 
 
 
-/* RESPONSIVE */
-
-@media (min-width: 768px) {
-
-	.sense-chart .canvas-wrapper {
-		min-height: 350px;
-	}
-
-	.margin-bottom {
-		margin-bottom: 30px;
-	}
-	.panel {
-		margin-bottom: 30px;
-	}
-	.current-selections {
-		margin-top: 65px;
-	}
-
-	/* #theuser{
-		font-size: 18px;
-		color: #52a2cc;
-		position: fixed;
-		right: -140px;
-		top: 19px;
-		-webkit-transition: right .5s ease-in;
-		-moz-transition: right .5s ease-in;
-		transition: right .5s ease-in;
-	}
-
-	.revealuser.navbar-right {
-		transform: translateX(-120px);
-	}
-	
-	.revealuser.navbar-right #theuser {
-		right: -100px;
-	} */
-
-
-
-	/* Vertical align the modal */
-
-	.modal {
-		text-align: center;
-		padding: 0!important;
-	  }
-	  
-	  .modal:before {
-		content: '';
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-		margin-right: -4px;
-	  }
-	  
-	  .modal-dialog {
-		display: inline-block;
-		text-align: left;
-		vertical-align: middle;
-	  }
-
-	  
-	.chart-types {
-		display: flex;
-		justify-content: space-between;
-	}
-}
-
-
-@media (max-width: 768px) {
-
-
-	#selectionBar {
-		padding: 10px 15px;
-	}
-	.margin-bottom {
-		margin-bottom: 40px;
-	}
-
-	.panel.sense-chart {
-		padding-top: 70px;
-		margin-bottom: 40px;
-	}
-
-	.app-container .content-container .side-menu .navbar-nav {
-		transform: translateY(30px);
-	}
-
-
-	.navbar-expand-toggle {
-		position: absolute;
-	}
-	.navbar-brand {
-		width: 100%;
-		text-align: center;
-		margin: 0;
-	}
-	.flat-blue .navbar .navbar-header .navbar-brand, .flat-blue .navbar.navbar-default .navbar-header .navbar-brand {
-		margin: 0;
-	}
-
-	.rk-dropdown.dropdown-menu {
-		width: 100%;
-		left: 0;
-		right: 0;
-		position: fixed;
-		background-color: #404040;
-		border-radius: 8px;
-	}
-
-	.flat-blue .navbar.navbar-default .navbar-right {
-		background-color: #404040;
-	}
-
-	.modal-dialog {
-		margin-top: 120px;
-	}
-
-
-	.page-title {
-		font-size: 1.5rem;
-		margin: 0rem 0 2rem;
-		border-bottom: 3px solid;
-		padding-bottom: 1rem;
-		font-weight: 500;
-		padding-top: 0;
-		color: #313943;
-	}
-
-
-	.chart-indicators ul {
-		display: block; text-align: center;
-	}
-
-	.chart-indicators ul li {
-		display: inline-block; width: 95px;
-		font-size: 16px; padding: 1rem;
-		margin-right: 5px;
-		margin: 0 5px 5px; 
-	}
-	.chart-indicators ul li:last-of-type {
-		margin: 0; 
-	}
-	.chart-indicators ul li i {
-		font-size: 1rem;
-	}
-
-
-
-
-
-	.flat-blue .panel.panel-default .panel-heading {
-		height: auto;
-	}
-	.chart-actions, .chart-title {
-		display: block !important; float: none !important;
-	}
-
-	.chart-actions .buttons-group { 
-		display: block; text-align: right;
-	}
-	.chart-vars.chart-actions {
-		margin: 0;
-	}
-	.chart-vars.chart-actions .buttons-group {
-		text-align: center;
-	}
-	.chart-actions .btn {
-		display: inline-block !important; float: none !important;
-		margin: 0 !important;
-	}
-
-
-
-	.sense-chart .canvas-wrapper {
-		height: 250px !important;
-		min-height: 250px !important;
-	}
-
-	
-
-	.chart-indicators ul li{
-		display: block;
-		width: auto;
-		margin: 5px 0;
-	}
-
-
-	#chart-vars-xs button {
-		font-size: 12px; 
-	}
-
-
-	/* SPLASHPAGE */
-	#powered-by-qlik {
-		position: relative;
-		margin: 1rem auto;
-	}
-	.current-weather {
-		width: 310px;
-		margin: 0 auto;
-	}
-	.current-weather-wrapper {
-		position: relative;
-		left: auto; top: auto;
-	}
-	.current-weather-wrapper h2 {
-		text-align: center;
-	}
-	.current-weather-wrapper h2 > div {
-		display: block;
-	}
-	.splash-content {
-		display: block;
-	}
-	.splash-content h1 {
-		margin: 0 0 2rem;
-		text-align: center;
-	}
-	.splash-content h1 span {
-		display: inline;
-	}
-}
-
-
-
-
 
 
 
@@ -2163,3 +1937,252 @@ body.flat-blue {
 .backward .scrolled.ng-leave-active {
 	transform: translate3d(100%, 0, 0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) {
+	
+		.sense-chart .canvas-wrapper {
+			min-height: 350px;
+		}
+	
+		.margin-bottom {
+			margin-bottom: 30px;
+		}
+		.panel {
+			margin-bottom: 30px;
+		}
+		.current-selections {
+			margin-top: 65px;
+		}
+	
+		/* #theuser{
+			font-size: 18px;
+			color: #52a2cc;
+			position: fixed;
+			right: -140px;
+			top: 19px;
+			-webkit-transition: right .5s ease-in;
+			-moz-transition: right .5s ease-in;
+			transition: right .5s ease-in;
+		}
+	
+		.revealuser.navbar-right {
+			transform: translateX(-120px);
+		}
+		
+		.revealuser.navbar-right #theuser {
+			right: -100px;
+		} */
+	
+	
+	
+		/* Vertical align the modal */
+	
+		.modal {
+			text-align: center;
+			padding: 0!important;
+		  }
+		  
+		  .modal:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			margin-right: -4px;
+		  }
+		  
+		  .modal-dialog {
+			display: inline-block;
+			text-align: left;
+			vertical-align: middle;
+		  }
+	
+		  
+		.chart-types {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+	
+	
+	@media (max-width: 768px) {
+	
+	
+		#selectionBar {
+			padding: 10px 15px;
+		}
+		.margin-bottom {
+			margin-bottom: 40px;
+		}
+	
+		.panel.sense-chart {
+			padding-top: 70px;
+			margin-bottom: 40px;
+		}
+	
+		.app-container .content-container .side-menu .navbar-nav {
+			transform: translateY(30px);
+		}
+	
+	
+		.navbar-expand-toggle {
+			position: absolute;
+		}
+		.navbar-brand {
+			width: 100%;
+			text-align: center;
+			margin: 0;
+		}
+		.flat-blue .navbar .navbar-header .navbar-brand, .flat-blue .navbar.navbar-default .navbar-header .navbar-brand {
+			margin: 0;
+		}
+	
+		.rk-dropdown.dropdown-menu {
+			width: 100%;
+			left: 0;
+			right: 0;
+			position: fixed;
+			background-color: #404040;
+			border-radius: 8px;
+		}
+	
+		.flat-blue .navbar.navbar-default .navbar-right {
+			background-color: #404040;
+		}
+	
+		.modal-dialog {
+			margin-top: 120px;
+		}
+	
+	
+		.page-title {
+			font-size: 1.5rem;
+			margin: 0rem 0 2rem;
+			border-bottom: 3px solid;
+			padding-bottom: 1rem;
+			font-weight: 500;
+			padding-top: 0;
+			color: #313943;
+		}
+	
+	
+		.chart-indicators ul {
+			display: block; text-align: center;
+		}
+	
+		.chart-indicators ul li {
+			display: inline-block; width: 95px;
+			font-size: 16px; padding: 1rem;
+			margin-right: 5px;
+			margin: 0 5px 5px; 
+		}
+		.chart-indicators ul li:last-of-type {
+			margin: 0; 
+		}
+		.chart-indicators ul li i {
+			font-size: 1rem;
+		}
+	
+	
+	
+	
+	
+		.flat-blue .panel.panel-default .panel-heading {
+			height: auto;
+		}
+		.chart-actions, .chart-title {
+			display: block !important; float: none !important;
+		}
+	
+		.chart-actions .buttons-group { 
+			display: block; text-align: right;
+		}
+		.chart-vars.chart-actions {
+			margin: 0;
+		}
+		.chart-vars.chart-actions .buttons-group {
+			text-align: center;
+		}
+		.chart-actions .btn {
+			display: inline-block !important; float: none !important;
+			margin: 0 !important;
+		}
+	
+	
+	
+		.sense-chart .canvas-wrapper {
+			height: 250px !important;
+			min-height: 250px !important;
+		}
+	
+		
+	
+		.chart-indicators ul li{
+			display: block;
+			width: auto;
+			margin: 5px 0;
+		}
+	
+	
+		#chart-vars-xs button {
+			font-size: 12px; 
+		}
+	
+	
+		/* SPLASHPAGE */
+		#powered-by-qlik {
+			position: relative;
+			margin: 1rem auto;
+		}
+		.current-weather {
+			width: 310px;
+			margin: 0 auto;
+		}
+		.current-weather-wrapper {
+			position: relative;
+			left: auto; top: auto;
+		}
+		.current-weather-wrapper h2 {
+			text-align: center;
+		}
+		.current-weather-wrapper h2 > div {
+			display: block;
+		}
+		.splash-content {
+			display: block;
+		}
+		.splash-content h1 {
+			margin: 0 0 2rem;
+			text-align: center;
+		}
+		.splash-content h1 span {
+			display: inline;
+		}
+		.flat-blue .splash-content .btn-primary {
+			display: block; margin: 2rem auto;
+		}
+	}
+	
+	
+	
+	
