@@ -5,6 +5,6 @@ angular.module('weatherApp')
             precision = 1;
         }
         var numberFilter = $filter('number');
-        return numberFilter(input, precision) + '\u00B0C';
+        return numberFilter(input, precision) + '\u00B0F';
     };
 });

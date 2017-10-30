@@ -12,7 +12,7 @@ angular.module('weatherApp').factory('weatherService', function($http) {
     return { 
       getWeather: function(lat,lon) {
         var weather = { temp: {}, clouds: null };
-        $http.jsonp('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&callback=JSON_CALLBACK&APPID=88bd662d7668938d3c9555bcc0f558b1').success(function(data) {
+        $http.jsonp('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=imperial&callback=JSON_CALLBACK&APPID=88bd662d7668938d3c9555bcc0f558b1').success(function(data) {
             if (data) {
                 console.log(data);
                 
