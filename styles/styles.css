@@ -1152,7 +1152,7 @@ width: 100%;
 
 .app-container .content-container .side-menu {
 	padding-top: 0; top: 60px;
-    padding-left: 5px;
+    padding-left: 2px;
 	background-color: #353d47;
 	
 }
@@ -2186,3 +2186,9 @@ body.flat-blue {
 	
 	
 	
+	.app-container .content-container .navbar-nav .reloadtime a {
+		padding-top: 1rem;
+	}
+	.app-container .content-container .navbar-nav .reloadtime a div {
+		line-height: 1rem; font-size: 12px;
+	}

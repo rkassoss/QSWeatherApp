@@ -18,6 +18,10 @@
 angular.module('weatherApp')
   .controller('NavCtrl', function($rootScope, $scope, $state, $document, $location, $modal) {
 
+    senseApp.getAppLayout().then(function(reply){
+      $rootScope.reloadTime = reply.layout.qLastReloadTime;
+    });
+
 
     if (!senseApp) senseApp = qv.openApp(appId, config);
 
@@ -27,7 +31,7 @@ angular.module('weatherApp')
         $scope.curuser = reply.qReturn;
     });
 
-
+    
     window._location = $location;
     window.scope = $scope;
     window.root = $rootScope;
@@ -249,7 +253,7 @@ angular.module('weatherApp')
     } );
 
 
-
+      
   })
 
   .directive('navMenus', function() {

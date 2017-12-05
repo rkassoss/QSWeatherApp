@@ -40,7 +40,11 @@
             <vartoggle variable="test" defaultvalue="°C" values="°C|°F">
       </li> -->
 
-     
+      <li class="reloadtime">
+        <a>
+            <div>Updated On:</div><div>{{reloadTime | date:'yyyy-MM-dd HH:mm'}}</div>
+          </a>
+        </li>
 
       <li class="dropdown profile filter-dropdown">
          <!-- style="overflow: hidden; position: relative" -->
@@ -170,8 +174,6 @@
           </a>
         </li>
 
-
-         
       </ul>
     </div>
     <!-- /.navbar-collapse -->
