@@ -111,6 +111,9 @@ angular.module('weatherApp')
     }
     
 
+    // an object from another app
+    secondApp.getObject('object-from-app-2','wzyaK');
+
     // create viz
     $scope.createViz = function(chartTitle,fieldAgr, fieldSetA, fieldName, fieldLabel, subtitle) {
       senseApp.visualization.create(

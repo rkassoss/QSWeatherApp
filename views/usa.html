@@ -4,15 +4,26 @@
         <h1 class="page-title visible-xs">{{pageName}}</h1>
         <div class="row" style="height: 350px;">
                 <div class="col-sm-12 col-md-4">
-                        <kpi-object id="kvPZ" title="" trendid="PaTUy" class="wind-measure"></kpi-object>        
-                      </div>
+                  <!-- <kpi-object id="tkMg" title="" trendid="PaTUy" class="wind-measure"></kpi-object>      -->
+                  <kpi-object id="kvPZ" title="" trendid="PaTUy" class="wind-measure"></kpi-object>                 
+                  </div>
                       <div class="col-sm-12 col-md-4">
                         <kpi-object id="nRPSe" title="" trendid="HzVrGf" class="rain-measure"></kpi-object>
                       </div>
                       <div class="col-sm-12 col-md-4">
+                        <!-- <kpi-object id="PaKRfm" title="" trendid="MDCzHh" class="temp-measure"></kpi-object> -->
                         <kpi-object id="QcDuPj" title="" trendid="MDCzHh" class="temp-measure"></kpi-object>
-                      </div>
 
+                        
+                      </div>
+    
+                      <div class="col-sm-12 col-md-6">
+                          <secondapp-object id="wzyaK" title=""></sense-object>
+                        </div>
+                
+                        <div class="col-sm-12 col-md-6">
+                          <sense-object id="MUcSP" title=""></sense-object>
+                        </div>
             <div class="col-sm-12">
                 
                   <div id="panel-{{divID}}" class="panel panel-default sense-chart glow">
@@ -78,7 +89,7 @@
                               <button class="btn btn-clear" ng-click="help()">Back to Analysis <i class="fa fa-close"></i></button>
                             </div>
                           </div>
-                          <div class="canvas-wrapper" style="width: 100%; height: 400px;">
+                          <div class="canvas-wrapper" style="width: 100%; height: 330px;">
                             <div id="{{divID}}" class=" cell qv-gridcell qvt-gridcell" style="width: 100%; height: 100%;"></div>
                         </div>
                       </div>

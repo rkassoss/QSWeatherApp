@@ -3,14 +3,14 @@
 
 /**
  * @ngdoc directive
- * @name weatherApp.directive:senseObject
+ * @name weatherApp.directive:secondAppObject
  * @description
  * # senseObject
  */
 
 
 angular.module('weatherApp')
-  .directive('senseObject', function($modal, $templateCache, $http) {
+  .directive('secondappObject', function($modal, $templateCache, $http) {
 
       return {
         restrict: 'E',
@@ -51,7 +51,7 @@ angular.module('weatherApp')
                     var objProperties = {qHyperCubeDef: qHyperCubeDef };
                     // $scope.chart.close();
 
-                    senseApp.visualization.create('table',null,objProperties)
+                    secondApp.visualization.create('table',null,objProperties)
                       .then(function(visual) {
                         visual.show(divID);
                         $scope.chart = visual;
@@ -98,7 +98,7 @@ angular.module('weatherApp')
                   
                         // if ($scope.chart) {  $scope.chart.close();   }
 
-                        senseApp.getObject(divID, objectID)
+                        secondApp.getObject(divID, objectID)
                           .then(function (d) {
 
                             // console.log(d);
