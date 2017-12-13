@@ -2,7 +2,7 @@
     <div class="splash-bg"></div>
     <img id="powered-by-qlik" src="images/powered-by-Qlik.png" alt="Powered by Qlik" class="img-responsive">
 
-    <div class="current-weather-wrapper">
+    <div ng-show="isSecure" class="current-weather-wrapper">
         <h2>Today in <reverse-geocode ng-if="lat && lng" lat="{{lat}}" lng="{{lng}}"></reverse-geocode></h2>
         <div class="current-weather">
                 <weather-icon cloudiness="{{ weather.clouds }}"></weather-icon>
@@ -41,7 +41,7 @@
                                   </div>
                               </div>
                               <div class="col-xs-4 text-right">
-                                  Data Last Updated: MM DDth, YYYY HH:MM:SS TT
+                                  <div>Updated On: {{reloadTime | date:'yyyy-MM-dd HH:mm'}}</div>
                               </div>
                         </div>
                     </div>

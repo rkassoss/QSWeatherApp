@@ -41,7 +41,7 @@ angular.module('weatherApp')
           id: 'hazMfK'
         }
       ];
-    }
+    };
 
     $scope.$watch(function () {
       for (var i = 0; i < $scope.slides.length; i++) {

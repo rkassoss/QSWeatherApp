@@ -8,10 +8,14 @@
  * Controller of the weatherApp
  */
 angular.module('weatherApp')
-  .controller('splashController', function ($scope, $timeout, $location,$geolocation, $http, weatherService, senseConfig) {
+  .controller('splashController', function ($scope, $rootScope, $timeout, $location,$geolocation, $http, weatherService, senseConfig) {
+
+    senseApp.getAppLayout().then(function(reply){
+        $rootScope.reloadTime = reply.layout.qLastReloadTime;
+      });
 
 
-
+      
     $scope.getGeoLocation = function() {
         var options = {
             enableHighAccuracy: true,
@@ -40,13 +44,18 @@ angular.module('weatherApp')
         
         navigator.geolocation.getCurrentPosition(success, error, options);
     }
-
         
 
     $scope.skip = false;
 
     $scope.init = function () {
-            $scope.getGeoLocation();
+            if (window.isSecureContext) {
+                // Page is a secure context so service workers are now available
+                $scope.getGeoLocation();
+                $scope.isSecure = true;
+            } else {
+                $scope.isSecure = false;
+            }
                $scope.inSplash = false; 
 
             // removed ngCookie

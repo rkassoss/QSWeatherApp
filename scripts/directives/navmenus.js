@@ -231,6 +231,14 @@ angular.module('weatherApp')
       // console.log(reply);
       var selections = reply.qSelectionObject.qSelections;
 
+      
+      $scope.selectionsCount = function() {
+          var count = 0;
+          angular.forEach(selections, function(selection){
+              count += selections ? 1 : 0;
+          });
+          return count; 
+      }
 
       if ( selections.length > 0 ) {
             selections.forEach( function ( value ) {

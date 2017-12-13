@@ -29,7 +29,7 @@ angular.module('weatherApp')
         link: function($scope, $element, $attrs ) {
 
               var objectID = $scope.id;
-              // window.objectID = $scope.id;
+              window.objectID = $scope.id;
               var divID = 'object_'+objectID;
 
 
@@ -42,14 +42,20 @@ angular.module('weatherApp')
                 $scope.chart.getProperties()
                   .then(function(d){
                     // console.log(d);
-                    var qHyperCubeDef = d.qHyperCubeDef;
+                    if (d.visualization == 'map') {
+                      var qHyperCubeDef = d.layers[0].qHyperCubeDef;
+                    } else {
+                      var qHyperCubeDef = d.qHyperCubeDef;
+                    }
+                    
                     var fields = [].concat(qHyperCubeDef.qDimensions).concat(qHyperCubeDef.qMeasures);
 
                     qHyperCubeDef.columnOrder = fields.map(function(d,i){ return i; });
                     qHyperCubeDef.columnWidths = fields.map(function(d,i){ return -1; });
 
                     var objProperties = {qHyperCubeDef: qHyperCubeDef };
-                    // $scope.chart.close();
+                    // console.log(objProperties);
+                    $scope.chart.close();
 
                     senseApp.visualization.create('table',null,objProperties)
                       .then(function(visual) {
@@ -77,11 +83,17 @@ angular.module('weatherApp')
                 
 
                 $scope.export = function() {
-                  $scope.chart.enigmaModel.exportData()
-                    .then(function(reply){
-                      console.log(reply);
-                      // window.location = location.origin + reply.qUrl;
-                    });
+                  // $scope.chart.enigmaModel.exportData()
+                  //   .then(function(reply){
+                  //     console.log(reply);
+                  //     window.location = location.origin + reply.qUrl;
+                  //   });
+                  console.log('hi');
+                  qv.table($scope.chart).exportData({
+                    // 'OOXML',
+                    format: 'OOXML',//'CSV_C',
+                    download: true
+                  });
                 };
 
                 // Expand objects model
@@ -96,37 +108,45 @@ angular.module('weatherApp')
 
                 $scope.getViz = function() {
                   
-                        // if ($scope.chart) {  $scope.chart.close();   }
+                        if ($scope.chart) {  $scope.chart.close();   }
 
                         senseApp.getObject(divID, objectID)
-                          .then(function (d) {
+                        .then(function(d) {
+                          $scope.chart = d;
+                          $scope.objType = 'viz';
+                          if (!$scope.titleObj) $scope.titleObj = d.layout.title;
+                          $('#'+divID).attr('tid', objectID);
+                        });
 
-                            // console.log(d);
-                            d.layout.showTitles = false;
+                        // senseApp.getObject(divID, objectID)
+                        //   .then(function (d) {
 
-                            d.Validated.bind(function(){
-                              d.layout.showTitles = false;
-                            });
+                        //     // console.log(d);
+                        //     d.layout.showTitles = false;
 
-                            $('#'+divID).attr('tid', objectID);
+                        //     d.Validated.bind(function(){
+                        //       d.layout.showTitles = false;
+                        //     });
 
-                            $scope.chart = d;
-                            $scope.objType = 'viz';
-                            $scope.vizType = d.genericType;
+                        //     $('#'+divID).attr('tid', objectID);
 
-                            // console.log($scope.chart);
+                        //     $scope.chart = d;
+                        //     $scope.objType = 'viz';
+                        //     $scope.vizType = d.genericType;
 
-                            if (!$scope.titleObj) $scope.titleObj = d.layout.title;
+                        //     // console.log($scope.chart);
 
-                          });
+                        //     if (!$scope.titleObj) $scope.titleObj = d.layout.title;
+
+                        //   });
 
                 };
 
           $scope.getViz();
 
-          setTimeout(function(){
-            $scope.getViz();
-          },300);
+          // setTimeout(function(){
+          //   $scope.getViz();
+          // },300);
 
 
         }

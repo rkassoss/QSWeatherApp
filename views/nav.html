@@ -55,6 +55,8 @@
         <a data-toggle="collapse" class="dropdown-toggle nav-icon" aria-expanded="false" role="button" href="#filterbox" data-toggle="dropdown"><i class="fa fa-filter"></i> </a>
         <ul id="filterbox" class="rk-dropdown dropdown-menu dropdown-menu-right dropdown-remove">
               <my-dropdown field="Date" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="Month" toggle="true" width="300"></my-dropdown>
+              <my-dropdown field="Year" toggle="true" width="300"></my-dropdown>
               <my-dropdown field="Season" toggle="false" width="300"></my-dropdown>
               <my-dropdown field="Country" toggle="true" width="300"></my-dropdown>
               <my-dropdown field="City" toggle="true" width="300"></my-dropdown>
@@ -64,7 +66,7 @@
 
       <li class="dropdown">
         <a href="" class="nav-icon" role="button" id="cs-toggle" ng-click="showSelectionBar()">
-          <i class="fa fa-tasks"></i>
+          <i class="fa fa-tasks"></i><span ng-hide="selectionsCount()==false" id="selectionCount">{{selectionsCount()}}</span>
         </a>
       </li>
 

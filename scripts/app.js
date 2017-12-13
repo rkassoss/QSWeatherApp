@@ -17,10 +17,10 @@ var appId;
 var global;
 var currentUser;
 
-// appId = 'weather trends.qvf'; // Sense Desktop
+appId = 'weather trends.qvf'; // Sense Desktop
 // appId = 'c60b027e-7284-4c23-8e67-49f4ec0893d0'; // Sense Server Local VM http://qmi-qs-cln/qmc
 // appId = '0c51a51a-986e-4887-a170-b8b90f39eca7'; // Sense Server on http://demo.qliksensestudios.com/
-appId = '133411f1-5871-4a75-99d8-17ee7f597af9'; // Sense Server on http://beta.qliksensestudios.com/
+// appId = '133411f1-5871-4a75-99d8-17ee7f597af9'; // Sense Server on http://beta.qliksensestudios.com/
 
 
 // appId2 = 'ABC Sales.qvf';
