@@ -121,7 +121,6 @@ angular.module('weatherApp')
     };
 
     $scope.showSelectionBar = function() {
-            console.log('click');
             $("#chart-body, .app-container .content-container .side-menu").toggleClass("cs-slide");
             $("#selectionBar").toggleClass("hideit");
     }
@@ -223,44 +222,137 @@ angular.module('weatherApp')
     };
 
 
+    // Original App Selections
     $scope.selState = senseApp.selectionState();
 
+    $scope.clearAllSelections = function() {
+      senseApp.clearAll();
+      secondApp.clearAll();
+    } 
     $scope.selectedSeason = 'Annual';
 
+////////////////////////////////////////////////////////////////////////////
+// Dan's promise
+    var fieldSelections = {};
+    function getFieldSelections(fieldName,appObject){
+        return new Promise(function(resolve, reject){
+            if (fieldSelections[fieldName]){
+                fieldSelections[fieldName].then(function(reply){
+                    resolve(reply.selections);
+                })
+            } else {
+                fieldSelections[fieldName] = appObject.createGenericObject( {
+                    selections: {
+                        qStringExpression: "=GetFieldSelections(["+fieldName+"],',',1000)"
+                    },
+                    selectionsCount: {
+                        qValueExpression: "=GetSelectedCount(["+fieldName+"])"
+                    }
+                }).then(function(reply){
+                    reply.layoutSubscribe(function(layout){
+                        reply.selections = layout.selections == '-' ? [] : layout.selections.split(',');
+                        resolve(reply.selections);
+                    });
+                    return reply;
+                })
+            }
+        });
+    };
+//////////////////////////////////////////////////////////////////////////////
+function syncSelections(){
+  senseApp.selections.selections.forEach(function(selection){
+    console.log(selections.fieldName, selections.selectedValues.map(function(e){ return e.qName; }))
+  });
+};
+
+senseApp.model.waitForOpen.promise.then(function(){
+  senseApp.selections.OnData.bind(syncSelections);
+})
+    var prevSelApp1, prevSelApp2;
     senseApp.getList( "SelectionObject", function ( reply ) {
-      // console.log(reply);
-      var selections = reply.qSelectionObject.qSelections;
+              // console.log(reply);
+              var selections = reply.qSelectionObject.qSelections;
+              prevSelApp1 = selections;
 
-      
-      $scope.selectionsCount = function() {
-          var count = 0;
-          angular.forEach(selections, function(selection){
-              count += selections ? 1 : 0;
-          });
-          return count; 
-      }
-
-      if ( selections.length > 0 ) {
-            selections.forEach( function ( value ) {
-                // console.log(value);
-                if (value.qField === "Season") {
-                  if (typeof value.qSelected !== 'undefined' && value.qSelected.length > 0) {
-                    $scope.selectedSeason = value.qSelected;
-                  } else {
-                    $scope.selectedSeason = 'Annual';
-                  }
+              console.log("app1 - "+selections);
 
                 
-                } 
-            });
-      } else {
-         $scope.selectedSeason = 'Annual';
-      }
+              $scope.selectionsCount = function() {
+                    var count = 0;
+                    angular.forEach(selections, function(selection){
+                        count += selections ? 1 : 0;
+                    });
+                    return count; 
+              }
 
-      
+              if ( selections.length > 0 ) {
+                      selections.forEach( function ( value ) {
+                          // console.log("app2 - "+prevSelApp2);
+                          
+                          console.log(value.qSelected);
+
+
+                        //     // if not selected in app 2
+                        // if (prevSelApp2.indexOf(value)<0){
+                        //       // manually select the matching field on the second app
+                        //       console.log("field is not in app2, manualy select it.");
+                              secondApp.field(value.qField).selectMatch(value.qSelected);
+                        // } else {
+                        //       // filed is in there, check if the value is different.
+                        //       console.log("field is in app2, now check if the value is different.");
+                        // }
+
+
+
+
+                        // Dan's promise approach
+                        // getFieldSelections(value.qField,senseApp).then(function(reply){
+                        //     console.log(reply);
+                        // });
+
+
+                        // if season selected - change background img
+                        if (value.qField === "Season") {
+                          if (typeof value.qSelected !== 'undefined' && value.qSelected.length > 0) {
+                            $scope.selectedSeason = value.qSelected;
+                          } else {
+                            $scope.selectedSeason = 'Annual';
+                          }                
+                        }                           
+                      });
+                } else {
+                  $scope.selectedSeason = 'Annual';
+                }
+                
     } );
 
 
+
+    // Secondary App Selections
+    secondApp.getList( "SelectionObject", function ( reply ) {
+      var selectionsApp2 = reply.qSelectionObject.qSelections;
+
+      prevSelApp2 = selectionsApp2;
+
+      if ( selectionsApp2.length > 0 ) {
+        selectionsApp2.forEach( function ( value ) {
+               //if not seleced in 1
+              // if(prevSelApp1.indexOf(value)<0){
+              //       // manually select the matching field on the main app
+              //       console.log("field is not in app1, manualy select it.");
+              //       senseApp.field(value.qField).selectMatch(value.qSelected); 
+              //  } else {
+              //     // filed is in there, check if the value is different.
+              //     console.log("field is selected in app1, now check if the value is different.");
+              //  }
+
+              // getFieldSelections(value.qField,secondApp).then(function(reply){
+              //   console.log(reply);
+              // });
+          
+        });
+      }
+    });
       
   })
 

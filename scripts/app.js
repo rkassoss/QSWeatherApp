@@ -23,7 +23,7 @@ appId = 'weather trends.qvf'; // Sense Desktop
 // appId = '133411f1-5871-4a75-99d8-17ee7f597af9'; // Sense Server on http://beta.qliksensestudios.com/
 
 
-// appId2 = 'ABC Sales.qvf';
+appId2 = 'weather trends 2.qvf';
 
 config = {
   host: window.location.hostname,
@@ -62,9 +62,18 @@ require(['js/qlik','selectize', 'under_score'], function(qlik, Selectize, _) {
 
       angular.bootstrap(document, ["weatherApp", "qlik-angular"]);
 
+
       senseApp = qlik.openApp(appId, config);
-      // secondApp = qlik.openApp(appId2, config);
+      senseApp.model.waitForOpen.promise.then(function(){
+        senseApp.selections = senseApp.selectionState();
+      });
+      secondApp = qlik.openApp(appId2, config);
+      secondApp.model.waitForOpen.promise.then(function(){
+        secondApp.selections = secondApp.selectionState();
+      });
       // console.log(secondApp);
+
+
 
 
       senseApp.addAlternateState('newState');
