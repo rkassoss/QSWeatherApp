@@ -50,6 +50,7 @@ require.config({
     }
 }
 });
+
 require(['js/qlik','selectize', 'under_score'], function(qlik, Selectize, _) {
     // window.under = under;
     // console.log(under);

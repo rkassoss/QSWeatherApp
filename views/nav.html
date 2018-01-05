@@ -40,11 +40,17 @@
             <vartoggle variable="test" defaultvalue="°C" values="°C|°F">
       </li> -->
 
+     
       <li class="reloadtime">
         <a>
             <div>Updated On:</div><div>{{reloadTime | date:'yyyy-MM-dd HH:mm'}}</div>
           </a>
         </li>
+
+        <li>
+          <a ng-click="takeScreenshot()"><i class="fa fa-camera"></i></a>
+        </li>
+  
 
       <li class="dropdown profile filter-dropdown">
          <!-- style="overflow: hidden; position: relative" -->

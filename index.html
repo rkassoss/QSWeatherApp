@@ -68,7 +68,7 @@
     </div> -->
         <nav-menus></nav-menus>
         <div class="container-fluid">
-            <div id="chart-body" class="side-body padding-top cs-slide" >
+            <div id="chart-body" class="side-body padding-top cs-slide">
                   <ui-view class="scrolled ng-view" ></ui-view>
             </div>
         </div>
@@ -111,12 +111,21 @@
     <script src="bower_components/ng-websocket/ng-websocket.js"></script>
     <script src="bower_components/angular-ui-sortable/sortable.js"></script>
     <script src="bower_components/smart-area/dist/smart-area.js"></script>
+
+    <script src="bower_components/file-saver/FileSaver.min.js"></script>
+
     <script src="bower_components/angular-pageslide-directive/dist/angular-pageslide-directive.js"></script>
     <script src="bower_components/angular-reverse-geocode/src/angular-reverse-geocode.js" charset="utf-8"></script>
 
+    
+
+
+
+    
+    
     <!-- endbower -->
     <!-- endbuild -->
-       
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/machineboy2045-angular-selectize2/3.0.1/angular-selectize.min.js"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -128,13 +137,16 @@
         <!-- <script src="scripts/services/currentLocation.js"></script> -->
         <script src="scripts/services/currentWeather.js"></script>
         <script src="scripts/services/anchorSmoothScroll.js"></script>
+
+        <script src="scripts/services/html2canvas-angular.js"></script>
+        
+
         <!-- <script src="scripts/services/syncSelections.js"></script> -->
 
         <script src="scripts/controllers/splashController.js"></script>
 
 
-        
-
+  
         
 
         <script src="scripts/directives/varToggle.js"></script>
@@ -174,12 +186,8 @@
 
         <script src="scripts/controllers/adhoc.js"></script>
 
-
-
-
         
        
-
         <!-- endbuild -->
 
   </div>
@@ -187,5 +195,9 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUkmRgg88KtpCS9eNJWUv-yzxm_F3U0Uk"
   type="text/javascript"></script>
 
+  
+
 </body>
+
+
 </html>

@@ -16,11 +16,19 @@
  //   });
 
 angular.module('weatherApp')
-  .controller('NavCtrl', function($rootScope, $scope, $state, $document, $location, $modal) {
+  .controller('NavCtrl', function($rootScope, $scope, $state, $document, $location, $modal, $filter, html2canvasAngular) {
+
+
+    var vNow = $filter('date')(new Date(), "yyyy-MM-dd");
+   
 
     senseApp.getAppLayout().then(function(reply){
       $rootScope.reloadTime = reply.layout.qLastReloadTime;
     });
+
+
+   
+
 
 
     if (!senseApp) senseApp = qv.openApp(appId, config);
@@ -108,7 +116,7 @@ angular.module('weatherApp')
       intro.start();
     };
 
-   
+
     $scope.resize = function() {
       // qv.resize();
     };
@@ -180,6 +188,10 @@ angular.module('weatherApp')
       } );
     } );
 
+
+
+
+
     $scope.applyBookmark = function(bookmarkId){
       senseApp.bookmark.apply( bookmarkId );
     };
@@ -223,7 +235,7 @@ angular.module('weatherApp')
 
 
     // Original App Selections
-    $scope.selState = senseApp.selectionState();
+    $scope.selState = senseApp.selections;
 
     $scope.clearAllSelections = function() {
       senseApp.clearAll();
@@ -233,31 +245,31 @@ angular.module('weatherApp')
 
 ////////////////////////////////////////////////////////////////////////////
 // Dan's promise
-    var fieldSelections = {};
-    function getFieldSelections(fieldName,appObject){
-        return new Promise(function(resolve, reject){
-            if (fieldSelections[fieldName]){
-                fieldSelections[fieldName].then(function(reply){
-                    resolve(reply.selections);
-                })
-            } else {
-                fieldSelections[fieldName] = appObject.createGenericObject( {
-                    selections: {
-                        qStringExpression: "=GetFieldSelections(["+fieldName+"],',',1000)"
-                    },
-                    selectionsCount: {
-                        qValueExpression: "=GetSelectedCount(["+fieldName+"])"
-                    }
-                }).then(function(reply){
-                    reply.layoutSubscribe(function(layout){
-                        reply.selections = layout.selections == '-' ? [] : layout.selections.split(',');
-                        resolve(reply.selections);
-                    });
-                    return reply;
-                })
-            }
-        });
-    };
+    // var fieldSelections = {};
+    // function getFieldSelections(fieldName,appObject){
+    //     return new Promise(function(resolve, reject){
+    //         if (fieldSelections[fieldName]){
+    //             fieldSelections[fieldName].then(function(reply){
+    //                 resolve(reply.selections);
+    //             })
+    //         } else {
+    //             fieldSelections[fieldName] = appObject.createGenericObject( {
+    //                 selections: {
+    //                     qStringExpression: "=GetFieldSelections(["+fieldName+"],',',1000)"
+    //                 },
+    //                 selectionsCount: {
+    //                     qValueExpression: "=GetSelectedCount(["+fieldName+"])"
+    //                 }
+    //             }).then(function(reply){
+    //                 reply.layoutSubscribe(function(layout){
+    //                     reply.selections = layout.selections == '-' ? [] : layout.selections.split(',');
+    //                     resolve(reply.selections);
+    //                 });
+    //                 return reply;
+    //             })
+    //         }
+    //     });
+    // };
 //////////////////////////////////////////////////////////////////////////////
 function syncSelections(){
   senseApp.selections.selections.forEach(function(selection){
@@ -353,6 +365,33 @@ senseApp.model.waitForOpen.promise.then(function(){
         });
       }
     });
+
+
+
+    $scope.takeScreenshot  = function(){
+
+
+      html2canvasAngular.renderBody().then(function(canvas){
+        // var img = canvas.toDataURL("image/png");
+
+        // // Open Canvas in anew tab
+        // downloadURI("data:" + myImage, "yourImage.png");
+        // var iframe = "<iframe width='100%' height='100%' src='" + img + "'></iframe>"
+        // var x = window.open();
+        // x.document.open();
+        // x.document.write(iframe);
+        // x.document.close();
+
+
+        // // save pdf with fileSaver.js
+        canvas.toBlob(function(blob) {
+            saveAs(blob, "weatherApp-"+$scope.pageName+"-"+vNow+".png");
+        });
+
+      });
+    };
+
+
       
   })
 

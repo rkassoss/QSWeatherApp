@@ -1,6 +1,7 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
+  
   "description": "A demo mashup integrating data from Qlik DataMarket, Geo location and OpenWeather.org.",
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -10,5 +11,8 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-alpha.8"
   }
 }
