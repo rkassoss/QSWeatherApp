@@ -144,9 +144,9 @@ angular.module('weatherApp')
 
           $scope.getViz();
 
-          // setTimeout(function(){
-          //   $scope.getViz();
-          // },300);
+          setTimeout(function(){
+            $scope.getViz();
+          },300);
 
 
         }

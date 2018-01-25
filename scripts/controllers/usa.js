@@ -119,7 +119,7 @@ angular.module('weatherApp')
         [
           {
             "qDef" : {
-              "qFieldDefs" : ["Date.autoCalendar.Month"],
+              "qFieldDefs" : ["Month"],
               "qFieldLabels" : ["Month"]
             },
             "qNullSuppression" : true,

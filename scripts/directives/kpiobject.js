@@ -74,9 +74,9 @@ angular.module('weatherApp')
 
             scope.getViz();
             
-            // setTimeout(function(){
-            //   scope.getViz();
-            // },100);
+            setTimeout(function(){
+              scope.getViz();
+            },100);
 
         }
       }
